@@ -63,7 +63,7 @@ export default async function Image() {
               display: 'flex',
             }}
           >
-            Available Summer '26
+            Available Summer &apos;26
           </div>
         </div>
 
