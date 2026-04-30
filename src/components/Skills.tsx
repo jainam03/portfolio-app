@@ -54,11 +54,11 @@ export default function Skills() {
                   id={`skill-group-${i}`}
                   className="glass rounded-2xl p-6 card-hover relative overflow-hidden group h-full"
                 >
-                  {/* Accent line */}
+                  {/* Accent line — switches color based on theme via CSS custom prop */}
                   <div
                     className="absolute top-0 left-0 right-0 h-[2px] opacity-70 group-hover:opacity-100 transition-opacity duration-300"
                     style={{
-                      background: `linear-gradient(90deg, ${colorDark}, transparent)`,
+                      background: `linear-gradient(90deg, var(--skill-color, ${colorDark}), transparent)`,
                     }}
                   />
 

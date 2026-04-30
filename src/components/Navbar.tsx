@@ -102,17 +102,19 @@ export default function Navbar() {
 
           {/* Desktop CTAs */}
           <div className="hidden md:flex items-center gap-2">
-            <a
-              href={personalInfo.resumeUrl}
+            <a href={personalInfo.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost text-xs py-2 px-4"
             >
               Resume ↗
             </a>
-            <a href="#contact" className="btn-primary text-xs py-2 px-4">
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="btn-primary text-xs py-2 px-4"
+            >
               Let&apos;s Talk
-            </a>
+            </button>
           </div>
 
           {/* Mobile hamburger */}

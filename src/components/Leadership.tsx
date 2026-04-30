@@ -65,6 +65,8 @@ export default function Leadership() {
             ))}
           </div>
 
+          {/* Mobile column divider */}
+          <div className="divider lg:hidden" />
           {/* Column 2 — Certifications */}
           <div className="lg:col-span-1 space-y-4">
             <AnimatedSection delay={100}>
@@ -89,7 +91,9 @@ export default function Leadership() {
                       <h3 className="text-sm font-semibold leading-snug">
                         {cert.title}
                       </h3>
-                      <ExternalLink className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5 group-hover:text-[hsl(var(--primary))] transition-colors" />
+                      {cert.credentialUrl !== '#' && (
+                        <ExternalLink className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5 group-hover:text-[hsl(var(--primary))] transition-colors" />
+                      )}
                     </div>
                     <p className="text-xs text-muted-foreground mt-0.5">
                       {cert.issuer}
@@ -103,6 +107,8 @@ export default function Leadership() {
             ))}
           </div>
 
+          {/* Mobile column divider */}
+          <div className="divider lg:hidden" />
           {/* Column 3 — Achievements */}
           <div className="lg:col-span-1">
             <AnimatedSection variant="fade-right" delay={100}>

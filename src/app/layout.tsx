@@ -4,6 +4,7 @@ import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { ScrollToTop } from '@/components/ScrollToTop';
 import { ReadingProgress } from '@/components/ReadingProgress';
+import { ScrollIndicator } from '@/components/ScrollIndicator';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -73,6 +74,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-background text-foreground antialiased overflow-x-hidden flex flex-col">
         <ThemeProvider>
           <ReadingProgress />
+          <ScrollIndicator />
           {children}
           <ScrollToTop />
         </ThemeProvider>
