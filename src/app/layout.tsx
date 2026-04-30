@@ -51,9 +51,8 @@ const themeScript = `
       document.documentElement.setAttribute('data-theme', stored);
       return;
     }
-    // Default: light on mobile (<768px), dark on desktop
-    var isMobile = window.matchMedia('(max-width: 767px)').matches;
-    document.documentElement.setAttribute('data-theme', isMobile ? 'light' : 'dark');
+    // Default: dark mode on all devices
+    document.documentElement.setAttribute('data-theme', 'dark');
   } catch(e) {
     document.documentElement.setAttribute('data-theme', 'dark');
   }

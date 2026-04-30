@@ -69,7 +69,14 @@ export default function About() {
               </div>
 
               {/* The Edge callout */}
-              <div className="glass rounded-2xl p-5 mt-2">
+              <div className="rounded-2xl p-5 mt-2 relative overflow-hidden"
+                style={{
+                  background: 'hsl(var(--primary) / 0.06)',
+                  border: '1px solid hsl(var(--primary) / 0.2)',
+                }}>
+                <div className="absolute top-0 left-0 w-full h-[2px]"
+                  style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), transparent)' }}
+                />
                 <div className="flex items-start gap-3">
                   <Lightbulb className="w-5 h-5 text-[hsl(var(--primary))] shrink-0 mt-0.5" />
                   <div>

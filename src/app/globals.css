@@ -159,7 +159,7 @@ html.theme-transition *::after {
 
   /* Section container */
   .section-container {
-    @apply max-w-6xl mx-auto px-6 py-24;
+    @apply max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-24;
   }
 
   /* Section heading */
@@ -227,8 +227,21 @@ html.theme-transition *::after {
 
   .btn-ghost:hover {
     background: var(--glass-strong-bg);
-    border-color: var(--glass-strong-border);
+    border-color: hsl(var(--primary) / 0.3);
     transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200;
+    background: hsl(var(--muted));
+    border: 1px solid hsl(var(--border));
+    color: hsl(var(--foreground));
+  }
+
+  .btn-secondary:hover {
+    background: hsl(var(--muted) / 0.8);
+    border-color: hsl(var(--primary) / 0.3);
+    transform: translateY(-1px);
   }
 
   /* Card hover */

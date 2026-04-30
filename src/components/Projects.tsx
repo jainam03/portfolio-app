@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { projects } from '@/data/content';
 import {
   X,
@@ -23,6 +23,18 @@ function ProjectModal({
   project: Project;
   onClose: () => void;
 }) {
+  // Lock body scroll and handle Escape key
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const handleKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handleKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener('keydown', handleKey);
+    };
+  }, [onClose]);
+
   return (
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center p-4"
@@ -32,12 +44,12 @@ function ProjectModal({
     >
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-fade-in"
+        className="absolute inset-0 bg-black/70 backdrop-blur-sm animate-fade-in"
         onClick={onClose}
       />
 
       {/* Modal */}
-      <div className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto glass-strong rounded-3xl p-8 animate-slide-up">
+      <div className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto glass-strong rounded-3xl p-6 md:p-8 animate-slide-up shadow-2xl">
         {/* Header */}
         <div className="flex items-start justify-between mb-6">
           <div>
