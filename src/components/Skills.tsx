@@ -4,18 +4,17 @@ import { skills } from '@/data/content';
 import { AnimatedSection } from '@/components/AnimatedSection';
 
 const domainColors: Record<string, string> = {
-  'Analytical & Strategy': 'hsl(196, 100%, 50%)',
-  'Tools & Software': 'hsl(258, 89%, 66%)',
-  'Tech & Engineering': 'hsl(196, 80%, 60%)',
-  'Business Design': 'hsl(280, 80%, 65%)',
+  'Analytical & Strategy': 'hsl(238, 78%, 68%)',
+  'Tools & Software': 'hsl(234, 72%, 72%)',
+  'Tech & Engineering': 'hsl(238, 70%, 65%)',
+  'Business Design': 'hsl(234, 75%, 70%)',
 };
 
-// Light-mode friendlier versions (darker for readability on white)
 const domainColorsDark: Record<string, string> = {
-  'Analytical & Strategy': 'hsl(196, 100%, 35%)',
-  'Tools & Software': 'hsl(258, 70%, 55%)',
-  'Tech & Engineering': 'hsl(196, 80%, 38%)',
-  'Business Design': 'hsl(280, 70%, 50%)',
+  'Analytical & Strategy': 'hsl(238, 65%, 55%)',
+  'Tools & Software': 'hsl(234, 60%, 58%)',
+  'Tech & Engineering': 'hsl(238, 60%, 52%)',
+  'Business Design': 'hsl(234, 62%, 56%)',
 };
 
 export default function Skills() {
@@ -23,7 +22,7 @@ export default function Skills() {
     <section id="skills" className="relative">
       <div
         className="blob w-[350px] h-[350px] -right-20 top-1/2 -translate-y-1/2"
-        style={{ background: 'hsl(258, 89%, 66%)' }}
+        style={{ background: 'hsl(238, 78%, 68%)' }}
       />
 
       <div className="section-container">

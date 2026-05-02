@@ -60,7 +60,7 @@ export default function Contact() {
     <section id="contact" className="relative">
       <div
         className="blob w-[500px] h-[500px] left-1/2 -translate-x-1/2 top-0"
-        style={{ background: 'hsl(196, 100%, 50%)' }}
+        style={{ background: 'hsl(238, 78%, 68%)' }}
       />
 
       <div className="section-container">

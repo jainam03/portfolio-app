@@ -1,7 +1,7 @@
 'use client';
 
 import { personalInfo } from '@/data/content';
-import { ArrowDown, Github, Linkedin, Mail, Zap } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin, Mail, Zap, ArrowDown } from 'lucide-react';
 
 export default function Hero() {
   const scrollToProjects = () => {
@@ -13,18 +13,14 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6"
     >
-      {/* Background gradient blobs */}
+      {/* Background blobs — single indigo, very restrained */}
       <div
-        className="blob w-[600px] h-[600px] -top-32 -left-32"
-        style={{ background: 'hsl(196, 100%, 50%)' }}
+        className="blob w-[700px] h-[700px] -top-48 -left-48"
+        style={{ background: 'hsl(238, 78%, 68%)' }}
       />
       <div
-        className="blob w-[500px] h-[500px] bottom-0 -right-32"
-        style={{ background: 'hsl(258, 89%, 66%)' }}
-      />
-      <div
-        className="blob w-[300px] h-[300px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-        style={{ background: 'hsl(196, 100%, 50%)', opacity: 0.06 }}
+        className="blob w-[400px] h-[400px] bottom-0 -right-24"
+        style={{ background: 'hsl(238, 78%, 68%)' }}
       />
 
       {/* Grid overlay */}
@@ -35,78 +31,81 @@ export default function Hero() {
             'linear-gradient(hsl(var(--border)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px)',
           backgroundSize: '64px 64px',
           opacity: 0.3,
-          maskImage:
-            'radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent)',
-          WebkitMaskImage:
-            'radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent)',
+          maskImage: 'radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent)',
+          WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent)',
         }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
-        {/* Identity badge */}
-        <div className="flex md:inline-flex flex-col md:flex-row items-center justify-center gap-2 md:gap-2.5 mb-8 px-5 py-3 md:py-2 rounded-2xl md:rounded-full glass text-[11px] md:text-xs font-medium animate-fade-in mx-auto w-fit max-w-[90%] md:max-w-none">
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <span className="glow-dot animate-pulse-slow shrink-0" />
-            <span>PGDM Business Design</span>
-            <span className="hidden md:inline">&nbsp;&middot;&nbsp;</span>
-          </div>
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <span style={{ color: 'hsl(var(--primary))' }}>WeSchool</span>
-            <span>&middot;&nbsp;IT Engineering</span>
-          </div>
-          <span className="hidden md:inline h-3 w-px bg-[hsl(var(--border))]" />
-          <div className="mt-1 md:mt-0 pt-2 md:pt-0 border-t border-[hsl(var(--border))] md:border-none w-full md:w-auto text-center">
-            <span style={{ color: 'hsl(var(--primary))' }} className="font-semibold">
-              Available Summer&nbsp;&#39;26
-            </span>
-          </div>
+      {/* Content — centered */}
+      <div className="relative z-10 flex flex-col items-center text-center max-w-4xl w-full pt-24">
+
+        {/* Badge */}
+        <div
+          className="flex flex-wrap items-center justify-center gap-2 mb-10 animate-fade-in glass px-4 py-2 rounded-full"
+          style={{ animationFillMode: 'both' }}
+        >
+          <span className="glow-dot animate-pulse-slow" />
+          <span className="text-xs text-muted-foreground">PGDM Business Design</span>
+          <span className="text-muted-foreground/40">·</span>
+          <span className="text-xs text-muted-foreground">WeSchool</span>
+          <span className="text-muted-foreground/40">·</span>
+          <span className="text-xs text-muted-foreground">IT Engineering</span>
+          <span className="text-muted-foreground/40">·</span>
+          <span className="text-xs font-semibold" style={{ color: 'hsl(var(--primary))' }}>
+            {personalInfo.seekingRole}
+          </span>
         </div>
 
-
-
-        {/* Main heading */}
+        {/* Name */}
         <h1
-          className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] mb-6 animate-slide-up"
-          style={{ animationDelay: '0.1s', animationFillMode: 'both' }}
+          className="mb-6 animate-slide-up"
+          style={{
+            animationDelay: '0.1s',
+            animationFillMode: 'both',
+            fontFamily: 'var(--font-syne), sans-serif',
+            fontWeight: 800,
+            fontSize: 'clamp(3rem, 10vw, 6.5rem)',
+            lineHeight: 1.0,
+            letterSpacing: '-0.02em',
+          }}
         >
           <span className="gradient-text">{personalInfo.name}</span>
         </h1>
 
-        {/* Title */}
+        {/* Title row */}
         <div
-          className="flex items-center justify-center gap-3 mb-5 animate-slide-up"
+          className="flex items-center gap-4 mb-6 animate-fade-in"
           style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
         >
-          <div className="h-px w-8 md:w-12 bg-gradient-to-r from-transparent to-[hsl(var(--primary)/0.5)]" />
-          <p className="font-semibold text-muted-foreground uppercase text-[10px] md:text-[11px] tracking-widest text-center">
+          <div className="h-px w-12 bg-[hsl(var(--border))]" />
+          <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-muted-foreground">
             {personalInfo.title}
           </p>
-          <div className="h-px w-8 md:w-12 bg-gradient-to-l from-transparent to-[hsl(var(--primary)/0.5)]" />
+          <div className="h-px w-12 bg-[hsl(var(--border))]" />
         </div>
 
         {/* Tagline */}
         <p
-          className="text-xl md:text-2xl font-medium mb-4 animate-slide-up"
-          style={{ animationDelay: '0.25s', animationFillMode: 'both' }}
+          className="text-xl md:text-2xl font-semibold mb-4 animate-slide-up"
+          style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
         >
           {personalInfo.tagline}
         </p>
 
         {/* Position statement */}
         <p
-          className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10 animate-slide-up px-2"
-          style={{ animationDelay: '0.35s', animationFillMode: 'both' }}
+          className="text-sm md:text-base text-muted-foreground max-w-2xl leading-relaxed mb-10 animate-slide-up"
+          style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
         >
           {personalInfo.positionStatement}
         </p>
 
         {/* CTAs */}
         <div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14 animate-slide-up"
-          style={{ animationDelay: '0.45s', animationFillMode: 'both' }}
+          className="flex flex-wrap items-center justify-center gap-4 mb-10 animate-slide-up"
+          style={{ animationDelay: '0.5s', animationFillMode: 'both' }}
         >
-          <button onClick={scrollToProjects} className="btn-primary w-full sm:w-auto">
+          <button onClick={scrollToProjects} className="btn-primary">
             <Zap className="w-4 h-4" />
             View My Work
           </button>
@@ -114,16 +113,17 @@ export default function Hero() {
             href={personalInfo.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-ghost w-full sm:w-auto"
+            className="btn-ghost"
           >
             Download Resume
+            <ArrowUpRight className="w-4 h-4" />
           </a>
         </div>
 
         {/* Social links */}
         <div
-          className="flex items-center justify-center gap-4 animate-fade-in"
-          style={{ animationDelay: '0.55s', animationFillMode: 'both' }}
+          className="flex items-center gap-3 animate-fade-in"
+          style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
         >
           <a
             id="hero-linkedin"
@@ -133,7 +133,7 @@ export default function Hero() {
             aria-label="LinkedIn Profile"
             className="p-3 rounded-xl glass transition-all duration-200 hover:scale-110 hover:border-[hsl(var(--primary)/0.4)] text-muted-foreground hover:text-[hsl(var(--primary))]"
           >
-            <Linkedin className="w-5 h-5" />
+            <Linkedin className="w-4 h-4" />
           </a>
           <a
             id="hero-github"
@@ -143,7 +143,7 @@ export default function Hero() {
             aria-label="GitHub Profile"
             className="p-3 rounded-xl glass transition-all duration-200 hover:scale-110 hover:border-[hsl(var(--primary)/0.4)] text-muted-foreground hover:text-[hsl(var(--primary))]"
           >
-            <Github className="w-5 h-5" />
+            <Github className="w-4 h-4" />
           </a>
           <a
             id="hero-email"
@@ -151,11 +151,10 @@ export default function Hero() {
             aria-label="Send Email"
             className="p-3 rounded-xl glass transition-all duration-200 hover:scale-110 hover:border-[hsl(var(--primary)/0.4)] text-muted-foreground hover:text-[hsl(var(--primary))]"
           >
-            <Mail className="w-5 h-5" />
+            <Mail className="w-4 h-4" />
           </a>
         </div>
       </div>
-
     </section>
   );
 }

@@ -8,51 +8,55 @@
 @layer base {
   :root,
   [data-theme="dark"] {
-    --background: 220 20% 7%;
-    --foreground: 213 31% 91%;
-    --card: 220 18% 11%;
-    --card-foreground: 213 31% 91%;
-    --muted: 220 14% 16%;
-    --muted-foreground: 215 16% 57%;
-    --border: 220 13% 18%;
-    --primary: 196 100% 50%;
-    --primary-foreground: 220 20% 7%;
-    --accent: 258 89% 66%;
-    --accent-foreground: 220 20% 7%;
-    --glass-bg: rgba(255, 255, 255, 0.04);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    --glass-strong-bg: rgba(255, 255, 255, 0.07);
-    --glass-strong-border: rgba(255, 255, 255, 0.12);
-    --glass-strong-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-    --blob-opacity: 0.12;
-    --noise-opacity: 0.025;
+    /* Pure neutral charcoal — no tint, lets the font breathe */
+    --background: 220 13% 7%;
+    --foreground: 0 0% 95%;
+    --card: 220 11% 10%;
+    --card-foreground: 0 0% 95%;
+    --muted: 220 9% 15%;
+    --muted-foreground: 220 5% 52%;
+    --border: 220 8% 19%;
+    /* ONE accent: electric indigo — used sparingly */
+    --primary: 238 78% 68%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 234 72% 72%;
+    --accent-foreground: 0 0% 100%;
+    /* Glass is subtle elevation only — not a visual element */
+    --glass-bg: rgba(255, 255, 255, 0.032);
+    --glass-border: rgba(255, 255, 255, 0.07);
+    --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    --glass-strong-bg: rgba(255, 255, 255, 0.055);
+    --glass-strong-border: rgba(255, 255, 255, 0.10);
+    --glass-strong-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    --blob-opacity: 0.07;
+    --noise-opacity: 0.02;
   }
 }
 
 /* ─── Design Tokens — Light ──────────────────────────────────── */
 @layer base {
   [data-theme="light"] {
-    --background: 210 30% 94%;
-    --foreground: 220 30% 12%;
+    /* Clean off-white — no warm or cool tint */
+    --background: 220 14% 96%;
+    --foreground: 220 15% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 220 30% 12%;
-    --muted: 215 20% 86%;
-    --muted-foreground: 215 20% 40%;
-    --border: 215 20% 78%;
-    --primary: 196 100% 32%;
+    --card-foreground: 220 15% 10%;
+    --muted: 220 10% 90%;
+    --muted-foreground: 220 7% 42%;
+    --border: 220 8% 82%;
+    /* Same indigo, slightly deeper for contrast on light */
+    --primary: 238 68% 60%;
     --primary-foreground: 0 0% 100%;
-    --accent: 258 70% 52%;
+    --accent: 234 62% 64%;
     --accent-foreground: 0 0% 100%;
-    /* Glass is more translucent so the blurred background shows through */
-    --glass-bg: rgba(255, 255, 255, 0.45);
-    --glass-border: rgba(255, 255, 255, 0.75);
-    --glass-shadow: 0 8px 32px rgba(0, 100, 180, 0.09), 0 1px 0 rgba(255,255,255,0.8) inset;
-    --glass-strong-bg: rgba(255, 255, 255, 0.62);
-    --glass-strong-border: rgba(255, 255, 255, 0.9);
-    --glass-strong-shadow: 0 12px 48px rgba(0, 100, 180, 0.13), 0 1px 0 rgba(255,255,255,0.9) inset;
-    --blob-opacity: 0.22;
-    --noise-opacity: 0.015;
+    --glass-bg: rgba(255, 255, 255, 0.55);
+    --glass-border: rgba(255, 255, 255, 0.85);
+    --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 0 rgba(255,255,255,0.9) inset;
+    --glass-strong-bg: rgba(255, 255, 255, 0.72);
+    --glass-strong-border: rgba(255, 255, 255, 0.92);
+    --glass-strong-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 1px 0 rgba(255,255,255,0.95) inset;
+    --blob-opacity: 0.12;
+    --noise-opacity: 0.01;
   }
 }
 
@@ -88,15 +92,9 @@ html.theme-transition *::after {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Light mode gets a directional gradient base so blobs + glass have depth */
+  /* Light mode — clean flat, no gradient. Typography does the work. */
   [data-theme="light"] body {
-    background: linear-gradient(
-      135deg,
-      hsl(210, 45%, 91%) 0%,
-      hsl(220, 35%, 95%) 50%,
-      hsl(196, 40%, 90%) 100%
-    );
-    min-height: 100vh;
+    background: hsl(220, 14%, 96%);
   }
 
   /* Custom scrollbar */
@@ -151,13 +149,13 @@ html.theme-transition *::after {
     border: 1px solid rgba(255, 255, 255, 0.65);
   }
 
-  /* Gradient text */
+  /* Gradient text — Option D: subtle indigo shimmer, not screaming */
   .gradient-text {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(
-      135deg,
-      hsl(var(--primary)) 0%,
-      hsl(var(--accent)) 100%
+      120deg,
+      hsl(238, 80%, 75%) 0%,
+      hsl(234, 75%, 68%) 100%
     );
   }
 
@@ -175,7 +173,7 @@ html.theme-transition *::after {
     @apply max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-24;
   }
 
-  /* Section heading */
+  /* Section heading — Syne font for editorial feel */
   .section-tag {
     @apply inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase;
     color: hsl(var(--primary));
@@ -183,13 +181,16 @@ html.theme-transition *::after {
   }
 
   .section-heading {
-    @apply text-3xl md:text-4xl font-bold tracking-tight;
+    @apply text-3xl md:text-5xl font-bold tracking-tight;
+    font-family: var(--font-syne), sans-serif;
     color: hsl(var(--foreground));
+    line-height: 1.1;
   }
 
   .section-subheading {
-    @apply text-base mt-3 max-w-2xl;
+    @apply text-base mt-4 max-w-2xl;
     color: hsl(var(--muted-foreground));
+    line-height: 1.7;
   }
 
   /* Tag / badge chips */
@@ -214,21 +215,18 @@ html.theme-transition *::after {
     border: 1px solid hsl(var(--border));
   }
 
-  /* CTA Buttons */
+  /* CTA Buttons — clean solid indigo, no purple, no pink */
   .btn-primary {
     @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200;
-    background: linear-gradient(
-      135deg,
-      hsl(var(--primary)) 0%,
-      hsl(196 100% 38%) 100%
-    );
-    color: hsl(var(--primary-foreground));
-    box-shadow: 0 0 24px hsl(var(--primary) / 0.3);
+    background: hsl(238, 78%, 64%);
+    color: #fff;
+    box-shadow: 0 2px 16px hsl(238 78% 64% / 0.25);
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 36px hsl(var(--primary) / 0.5);
+    background: hsl(238, 78%, 70%);
+    box-shadow: 0 4px 24px hsl(238 78% 64% / 0.40);
   }
 
   .btn-ghost {

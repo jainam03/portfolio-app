@@ -30,7 +30,7 @@ export default async function Image() {
             left: '-10%',
             width: '600px',
             height: '600px',
-            background: 'linear-gradient(to right, rgba(0, 198, 255, 0.4), rgba(0, 114, 255, 0.4))',
+            background: 'linear-gradient(to right, rgba(251, 191, 36, 0.4), rgba(251, 146, 60, 0.4))',
             filter: 'blur(100px)',
             borderRadius: '50%',
           }}

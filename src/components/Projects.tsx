@@ -246,7 +246,7 @@ export default function Projects() {
     <section id="projects" className="relative">
       <div
         className="blob w-[400px] h-[400px] -left-32 top-1/2 -translate-y-1/2"
-        style={{ background: 'hsl(196, 100%, 50%)' }}
+        style={{ background: 'hsl(238, 78%, 68%)' }}
       />
 
       <div className="section-container">

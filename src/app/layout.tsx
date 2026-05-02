@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Syne } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { ScrollToTop } from '@/components/ScrollToTop';
@@ -9,6 +9,13 @@ import { ScrollIndicator } from '@/components/ScrollIndicator';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
+});
+
+const syne = Syne({
+  subsets: ['latin'],
+  variable: '--font-syne',
+  weight: ['700', '800'],
   display: 'swap',
 });
 
@@ -33,7 +40,7 @@ export const metadata: Metadata = {
     description:
       'I map operational systems, diagnose inefficiencies, and build structured solutions.',
     type: 'website',
-    url: 'https://jainamchheda.com', // Replace with final URL
+    url: 'https://jainamchheda.com',
     siteName: 'Jainam Chheda Portfolio',
   },
   twitter: {
@@ -66,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} overflow-x-hidden`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${syne.variable} overflow-x-hidden`} suppressHydrationWarning>
       <head>
         {/* Run before render to eliminate theme flash */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
