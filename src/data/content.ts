@@ -12,8 +12,8 @@ export const personalInfo = {
   linkedin: 'https://www.linkedin.com/in/jainam-chheda',
   github: 'https://github.com/jainam03',
   resumeUrl: '/resume.pdf',
-  openToWork: true,
-  seekingRole: 'Summer Internship 2026',
+  openToWork: false,
+  seekingRole: 'Placed @ Roquette · Summer 2026',
 };
 
 export const about = {

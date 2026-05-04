@@ -44,14 +44,21 @@ export default function Hero() {
           className="flex flex-wrap items-center justify-center gap-2 mb-10 animate-fade-in glass px-4 py-2 rounded-full"
           style={{ animationFillMode: 'both' }}
         >
-          <span className="glow-dot animate-pulse-slow" />
+          {/* Amber dot = placed, green dot = open to work */}
+          <span
+            className="inline-block w-1.5 h-1.5 rounded-full animate-pulse-slow"
+            style={{ background: personalInfo.openToWork ? '#22c55e' : '#f59e0b' }}
+          />
           <span className="text-xs text-muted-foreground">PGDM Business Design</span>
           <span className="text-muted-foreground/40">·</span>
           <span className="text-xs text-muted-foreground">WeSchool</span>
           <span className="text-muted-foreground/40">·</span>
           <span className="text-xs text-muted-foreground">IT Engineering</span>
           <span className="text-muted-foreground/40">·</span>
-          <span className="text-xs font-semibold" style={{ color: 'hsl(var(--primary))' }}>
+          <span
+            className="text-xs font-semibold"
+            style={{ color: personalInfo.openToWork ? 'hsl(var(--primary))' : '#f59e0b' }}
+          >
             {personalInfo.seekingRole}
           </span>
         </div>
