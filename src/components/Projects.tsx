@@ -176,7 +176,7 @@ function ProjectCard({
 }) {
   return (
     <div
-      className="glass rounded-2xl p-6 card-hover cursor-pointer relative overflow-hidden group h-full flex flex-col"
+      className="glass rounded-2xl card-hover cursor-pointer relative overflow-hidden group h-full flex flex-col"
       onClick={onClick}
       role="button"
       tabIndex={0}
@@ -184,56 +184,71 @@ function ProjectCard({
       aria-label={`View ${project.title} case study`}
       onKeyDown={(e) => e.key === 'Enter' && onClick()}
     >
-      {/* Top accent */}
-      <div
-        className="absolute top-0 left-0 right-0 h-[2px] transition-opacity duration-300 group-hover:opacity-100 opacity-60"
-        style={{
-          background:
-            index % 2 === 0
-              ? 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)))'
-              : 'linear-gradient(90deg, hsl(var(--accent)), hsl(var(--primary)))',
-        }}
-      />
-
-      {/* Domain tag */}
-      <div className="flex items-center justify-between mb-4">
-        <span className={index % 2 === 0 ? 'chip' : 'chip-accent'}>
-          {project.domain}
-        </span>
-        <ExternalLink className="w-4 h-4 text-muted-foreground transition-all duration-200 group-hover:text-[hsl(var(--primary))] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-      </div>
-
-      {/* Title */}
-      <h3 className="font-bold text-lg leading-snug mb-2 transition-colors duration-200 group-hover:text-[hsl(var(--primary))]">
-        {project.title}
-      </h3>
-
-      {/* Summary */}
-      <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-        {project.summary}
-      </p>
-
-      {/* Impact */}
-      <div className="flex items-center gap-2 p-3 rounded-xl bg-[hsl(var(--primary)/0.06)] border border-[hsl(var(--primary)/0.12)] mb-4">
-        <TrendingUp className="w-3.5 h-3.5 text-[hsl(var(--primary))]" />
-        <p className="text-xs font-semibold text-[hsl(var(--primary))]">
-          {project.impact}
-        </p>
-      </div>
-
-      {/* Tags */}
-      <div className="flex flex-wrap gap-1.5 mb-5">
-        {project.tags.map((tag) => (
-          <span key={tag} className="chip-muted text-[10px]">
-            {tag}
+      {/* Thumbnail Diagram */}
+      <div className="h-32 w-full relative overflow-hidden flex items-center justify-center border-b border-[hsl(var(--border))]">
+        <div 
+          className="absolute inset-0 opacity-10 transition-opacity duration-500 group-hover:opacity-20" 
+          style={{ 
+            background: index % 2 === 0 
+              ? 'radial-gradient(circle at center, hsl(var(--primary)), transparent)' 
+              : 'radial-gradient(circle at center, hsl(var(--accent)), transparent)' 
+          }} 
+        />
+        {/* Domain tag on thumbnail */}
+        <div className="absolute top-4 left-4 z-10">
+          <span className={index % 2 === 0 ? 'chip shadow-md bg-background/80 backdrop-blur-md' : 'chip-accent shadow-md bg-background/80 backdrop-blur-md'}>
+            {project.domain}
           </span>
-        ))}
+        </div>
+        
+        {/* Abstract icon based on index */}
+        <div className="transform transition-transform duration-500 group-hover:scale-110">
+          {index === 0 && <TrendingUp className="w-12 h-12 text-[hsl(var(--primary))] opacity-40" />}
+          {index === 1 && <Target className="w-12 h-12 text-[hsl(var(--accent))] opacity-40" />}
+          {index === 2 && <AlertCircle className="w-12 h-12 text-[hsl(var(--primary))] opacity-40" />}
+          {index === 3 && <Lightbulb className="w-12 h-12 text-[hsl(var(--accent))] opacity-40" />}
+          {index === 4 && <Wrench className="w-12 h-12 text-[hsl(var(--primary))] opacity-40" />}
+        </div>
+        
+        <ExternalLink className="absolute top-4 right-4 w-4 h-4 text-muted-foreground opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:text-[hsl(var(--primary))] z-10" />
       </div>
 
-      {/* CTA line */}
-      <div className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground group-hover:text-[hsl(var(--primary))] transition-colors duration-200 mt-auto">
-        <span>View Case Study</span>
-        <ChevronRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+      <div className="p-6 flex flex-col flex-1">
+        {/* Title */}
+        <h3 className="font-bold text-lg leading-snug mb-2 transition-colors duration-200 group-hover:text-[hsl(var(--primary))]">
+          {project.title}
+        </h3>
+
+        {/* Summary */}
+        <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1 line-clamp-3">
+          {project.summary}
+        </p>
+
+        {/* Impact Metric */}
+        <div className="flex items-center gap-2 p-3 rounded-xl bg-[hsl(var(--primary)/0.06)] border border-[hsl(var(--primary)/0.12)] mb-4 transition-colors group-hover:bg-[hsl(var(--primary)/0.1)]">
+          <TrendingUp className="w-4 h-4 text-[hsl(var(--primary))]" />
+          <p className="text-xs font-semibold text-[hsl(var(--primary))]">
+            {project.impact}
+          </p>
+        </div>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5 mb-5">
+          {project.tags.slice(0, 3).map((tag) => (
+            <span key={tag} className="chip-muted text-[10px]">
+              {tag}
+            </span>
+          ))}
+          {project.tags.length > 3 && (
+            <span className="chip-muted text-[10px]">+{project.tags.length - 3}</span>
+          )}
+        </div>
+
+        {/* CTA line */}
+        <div className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground group-hover:text-[hsl(var(--primary))] transition-colors duration-200 mt-auto pt-2 border-t border-[hsl(var(--border))]">
+          <span>Read More Case Study</span>
+          <ChevronRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+        </div>
       </div>
     </div>
   );
