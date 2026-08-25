@@ -6,12 +6,12 @@ export const personalInfo = {
   title: 'Operations · Analytics · Strategy',
   tagline: 'Engineering precision meets business design.',
   positionStatement:
-    'I map operational systems, diagnose inefficiencies, and build structured solutions. From time-motion studies at QSR outlets to AI-enabled workflow prototypes — IT engineering taught me to think in systems, business design taught me to solve for people.',
+    'I turn messy operational problems into clear workflows, decision tools, and practical prototypes.',
   location: 'Mumbai, India',
   email: 'jbchheda03@gmail.com',
   linkedin: 'https://www.linkedin.com/in/jainam-chheda',
   github: 'https://github.com/jainam03',
-  resumeUrl: '/resume.pdf',
+  resumeUrl: '/resume-latest.pdf',
   openToWork: false,
   seekingRole: 'Placed @ Roquette · Summer 2026',
 };
@@ -19,9 +19,8 @@ export const personalInfo = {
 export const about = {
   headline: 'Systems thinker. Process analyst. Structured executor.',
   paragraphs: [
-    'I am a PGDM – Business Design student at WeSchool Mumbai (Batch 2025–27) with a B.E. in Information Technology. My work lives at the intersection of engineering rigour and business pragmatism.',
-    'I approach problems by first mapping the system, then locating the highest-leverage intervention. Whether it\'s a service bottleneck at a QSR outlet, a coordination gap in a gifting platform, or a carbon tracking problem in construction — I build structured solutions, not one-off fixes.',
-    'Track record: published researcher, hackathon finalist, and builder of real-world prototypes across operations, AI/ML, and sustainability.',
+    'PGDM – Business Design student at WeSchool with a B.E. in Information Technology.',
+    'I map systems, find the highest-leverage gap, and communicate the solution through crisp analysis, dashboards, and prototypes.',
   ],
   traits: ['Systems Thinker', 'Process Analyst', 'Lean Practitioner', 'Design Thinker'],
 };
@@ -52,33 +51,60 @@ export const education = [
   },
 ];
 
-export const projects = [
+export type ProjectArtifact = {
+  type: 'presentation' | 'prototype';
+  label: string;
+  mode: 'pdf' | 'external' | 'iframe';
+  url: string;
+  available: boolean;
+};
+
+export type Project = {
+  id: string;
+  title: string;
+  domain: string;
+  period: string;
+  summary: string;
+  tags: string[];
+  impact: string;
+  problem: string;
+  approach: string;
+  tools: string[];
+  insights: string[];
+  outcome: string;
+  artifacts?: ProjectArtifact[];
+};
+
+export const projects: Project[] = [
   {
     id: 'p1',
     title: 'Service Operations & Process Analysis',
     domain: 'Operations',
     period: "Jul '25 – Dec '25",
-    summary: "Time-motion study at McDonald's revealing a 4+ minute table allocation delay — diagnosed to 15% non-value-added time and fragmented handoffs.",
+    summary: "Mapped McDonald's QSR operations to expose process waste, customer lead time, and bottlenecks.",
     tags: ['Lean', 'Time-Motion Study', 'Process Mapping', 'QSR'],
-    impact: '15% NVA time uncovered; 4+ min delay root-caused',
+    impact: '72.88% NVA time · 31 min lead time · 8.59% PCE',
     problem:
-      "McDonald's table allocation had consistent delays exceeding 4 minutes due to fragmented handoffs between station staff and the absence of real-time table visibility — creating a measurable dip in customer throughput.",
+      "McDonald's service flow carried a 31-minute customer lead time, with waste concentrated in waiting, handoffs, and reactive table allocation.",
     approach:
-      'Conducted structured time-motion study across multiple service cycles at the outlet. Applied Lean value stream thinking to classify each activity as value-adding or non-value-adding. Root-cause mapped the delay to three compounding factors: reactive table allocation, no live seat display, and decoupled pre-ordering.',
+      'Used a Gemba walk, time-motion study, value-stream analysis, and process redesign to locate bottlenecks and propose technology-enabled interventions.',
     tools: ['Time-Motion Study', 'Lean / VSM', 'MS Excel', 'Process Mapping'],
     insights: [
-      '15% of total service cycle time was non-value-added — concentrated in waiting and handoff transitions.',
-      'Table allocation was reactive, not anticipatory — a structural flaw solvable with a simple pre-allocation rule.',
+      '72.88% of observed activity was non-value-added.',
+      'Process cycle efficiency was 8.59%, highlighting a large improvement opportunity.',
     ],
     outcome:
-      'Proposed Lean-driven interventions: pre-allocation protocols, live seat display system, and integrated pre-ordering. Projected to eliminate the 4+ minute delay and improve table utilisation rate meaningfully.',
+      'Proposed pre-allocation protocols, live seat visibility, and integrated pre-ordering to reduce avoidable movement and waiting.',
+    artifacts: [
+      { type: 'presentation', label: 'View Presentation', mode: 'pdf', url: '/projects/qsr-process-analysis/presentation.pdf', available: true },
+    ],
   },
   {
     id: 'p2',
     title: 'Customised Gifting Platform — UX Digitisation',
     domain: 'Product & UX',
     period: "Nov '25 – Jan '26",
-    summary: 'Multi-stakeholder research and workflow mapping across a gifting platform\'s order lifecycle, resulting in an AI-enabled coordination prototype.',
+    summary: 'Mapped a gifting platform\'s order lifecycle and designed an AI-enabled coordination prototype.',
     tags: ['UX Research', 'Workflow Design', 'AI Prototype', 'Stakeholder Mapping'],
     impact: 'Coordination prototype reducing gaps across 3+ stakeholder layers',
     problem:
@@ -91,27 +117,35 @@ export const projects = [
       'Standard tracking tools lacked exception-awareness; alerts were reactive, not predictive.',
     ],
     outcome:
-      'Delivered an AI-enabled workflow prototype improving transparency, exception handling, and alignment across the 3-layer stakeholder chain — from order intake to final delivery.',
+      'Delivered an AI-enabled workflow prototype for clearer order visibility, exception handling, and handoff ownership.',
+    artifacts: [
+      { type: 'presentation', label: 'View Presentation', mode: 'pdf', url: '/projects/gifting-platform/presentation.pdf', available: true },
+      { type: 'prototype', label: 'View Prototype', mode: 'external', url: 'https://wrapcraft.lovable.app', available: true },
+    ],
   },
   {
     id: 'p3',
     title: 'C&D Waste Lifecycle Analysis — Trace Carbon',
     domain: 'Sustainability & Analytics',
-    period: "Nov '25 – Present",
-    summary: 'Analysed construction & demolition waste workflows and built "Trace Carbon" — a prototype enabling carbon quantification and circularity decision-making.',
+    period: "Nov '25 – Apr '26",
+    summary: 'Mapped C&D waste workflows and developed a technology-enabled platform for carbon and circularity decisions.',
     tags: ['Carbon Tracking', 'Workflow Analysis', 'Sustainability', 'Prototype'],
-    impact: 'C&D carbon tracking prototype aligned to compliance & circularity',
+    impact: 'Research-led platform for carbon visibility and circularity',
     problem:
       'C&D waste systems lacked structured carbon tracking and compliance monitoring — creating fragmented, non-transparent waste management with no clear basis for circularity decisions.',
     approach:
-      'Analysed existing C&D waste workflows end-to-end to identify systemic gaps. Developed "Trace Carbon" — a workflow-led prototype that quantifies emissions at each lifecycle stage, maps waste handling, and enables data-driven circularity decisions aligned with sustainability frameworks.',
+      'Combined primary and secondary research, stakeholder pain-point mapping, value-proposition design, and feasibility assessment into a technology-enabled platform concept.',
     tools: ['Workflow Analysis', 'Sustainability Frameworks', 'Carbon Calculation Logic', 'Prototype Design'],
     insights: [
-      'Carbon tracking in C&D is largely manual and fragmented — a system problem, not a data problem.',
-      'Quantifying emissions per lifecycle stage shifts teams from reactive compliance to proactive monitoring.',
+      'Stakeholder pain points clustered around fragmented workflows and limited sustainability visibility.',
+      'Adoption readiness and circularity value were treated as design requirements, not afterthoughts.',
     ],
     outcome:
-      'Delivered "Trace Carbon" prototype enabling improved emissions visibility, compliance tracking, and decision support for stakeholders across the C&D waste ecosystem.',
+      'Developed a technology-enabled platform concept and evaluated its business feasibility, circularity potential, and adoption readiness.',
+    artifacts: [
+      { type: 'presentation', label: 'View Presentation', mode: 'pdf', url: '/projects/trace-carbon/presentation.pdf', available: true },
+      { type: 'prototype', label: 'View Prototype', mode: 'external', url: 'https://tracecarbon-sustainability.vercel.app/', available: true },
+    ],
   },
   {
     id: 'p4',
@@ -132,6 +166,9 @@ export const projects = [
     ],
     outcome:
       'Functional deepfake detection model. Research published in GIS Science Journal (Feb \'24). Team placed Runners-up at the Global Deepfake Discovery Hackathon organised by Cyber Peace Foundation (Mar \'24).',
+    artifacts: [
+      { type: 'prototype', label: 'View Prototype', mode: 'external', url: 'https://fakebreaker.vercel.app/', available: true },
+    ],
   },
   {
     id: 'p5',
@@ -152,6 +189,30 @@ export const projects = [
     ],
     outcome:
       'Functional simulation with documented smart contract architecture. Feasibility assessment validated the approach for deployment in high-volume transactional ticketing environments.',
+    artifacts: [
+      { type: 'prototype', label: 'View Prototype', mode: 'external', url: 'https://myevenix.vercel.app/', available: true },
+    ],
+  },
+];
+
+export type Experience = {
+  role: string;
+  organization: string;
+  period: string;
+  impact: string[];
+  tools: string[];
+};
+
+export const experience: Experience[] = [
+  {
+    role: 'Procurement Analyst Intern',
+    organization: 'Roquette',
+    period: 'May 2026 – Jul 2026',
+    impact: [
+      'Analysed maize price movements across NCDEX and mandi markets using supply, demand, crop, weather, trade, and end-use data.',
+      'Built a Power BI decision-support model and documented monthly refresh checks without changing model relationships or calculated tables.',
+    ],
+    tools: ['Power BI', 'Market Analysis', 'Data Validation', 'Business Reporting'],
   },
 ];
 
@@ -219,15 +280,15 @@ export const certifications = [
     credentialUrl: '#',
   },
   {
-    title: 'Prompt Engineering Basics',
-    issuer: 'Coursera',
-    year: '2025',
+    title: 'Leading with Generative AI',
+    issuer: 'Harvard Business Impact Enterprise',
+    year: '2026',
     credentialUrl: '#',
   },
   {
-    title: 'Design Thinking for Innovators',
-    issuer: 'Coursera',
-    year: '2025',
+    title: 'AI Fluency Framework & Foundation',
+    issuer: 'Anthropic',
+    year: '2026',
     credentialUrl: '#',
   },
 ];

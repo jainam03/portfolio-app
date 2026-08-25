@@ -1,7 +1,7 @@
 'use client';
 
-import { certifications, leadership, achievements } from '@/data/content';
-import { Award, Star, ExternalLink, Trophy } from 'lucide-react';
+import { certifications, leadership, achievements, experience } from '@/data/content';
+import { Award, Star, ExternalLink, Trophy, Briefcase } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
 
 export default function Leadership() {
@@ -15,15 +15,31 @@ export default function Leadership() {
               <span className="glow-dot" />
               Experience & Recognition
             </p>
-            <h2 className="section-heading">
-              Leadership, Certs & Achievements
-            </h2>
+            <h2 className="section-heading">Experience & recognition</h2>
             <p className="section-subheading">
-              Positions held, credentials earned, and milestones that define the
-              trajectory.
+              A compact view of the work, credentials, and milestones behind the portfolio.
             </p>
           </div>
         </AnimatedSection>
+
+        <div className="mb-10">
+          <AnimatedSection delay={80}>
+            <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5">Professional experience</p>
+            {experience.map((role) => (
+              <div key={`${role.organization}-${role.role}`} className="glass rounded-2xl p-5 md:p-6 card-hover relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-[3px] h-full rounded-full" style={{ background: 'linear-gradient(180deg, hsl(var(--primary)), transparent)' }} />
+                <div className="pl-4 grid md:grid-cols-[1fr_auto] gap-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1"><Briefcase className="w-4 h-4 text-[hsl(var(--primary))]" /><h3 className="font-semibold text-sm">{role.role}</h3></div>
+                    <p className="text-sm text-[hsl(var(--primary))]">{role.organization}</p>
+                    <ul className="mt-3 space-y-1.5">{role.impact.map((item) => <li key={item} className="text-xs text-muted-foreground leading-relaxed flex items-start gap-2"><span className="mt-1.5 w-1 h-1 rounded-full bg-[hsl(var(--primary)/0.6)] shrink-0" />{item}</li>)}</ul>
+                  </div>
+                  <div className="flex md:flex-col items-start md:items-end gap-2"><span className="chip-muted text-[10px]">{role.period}</span><div className="flex flex-wrap gap-1.5">{role.tools.map((tool) => <span key={tool} className="chip text-[10px]">{tool}</span>)}</div></div>
+                </div>
+              </div>
+            ))}
+          </AnimatedSection>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Column 1 — Leadership */}

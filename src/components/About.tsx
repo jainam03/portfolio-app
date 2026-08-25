@@ -82,10 +82,7 @@ export default function About() {
                   <div>
                     <p className="text-sm font-semibold mb-1">The Edge</p>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Most B-school students think in slides. I think in systems — process flows,
-                      stakeholder maps, and root-cause trees — then communicate them in crisp slides.
-                      IT engineering taught me to trace problems to the source. Business design taught
-                      me to solve them for people.
+                      I connect process flows, stakeholder maps, and root-cause analysis to practical business decisions.
                     </p>
                   </div>
                 </div>
