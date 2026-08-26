@@ -40,3 +40,6 @@ next-env.d.ts
 # ── NOTE: public/resume.pdf is intentionally tracked ──
 # Vercel serves files from /public directly.
 # Excluding it would break the "Download Resume" button on the live site.
+
+# Project presentations are stored in private Supabase Storage.
+/public/projects/**/*.pdf
