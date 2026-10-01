@@ -11,7 +11,7 @@ export default async function Image() {
     (
       <div
         style={{
-          background: '#020817', // Match your dark mode bg
+          background: '#101116',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -30,7 +30,7 @@ export default async function Image() {
             left: '-10%',
             width: '600px',
             height: '600px',
-            background: 'linear-gradient(to right, rgba(251, 191, 36, 0.4), rgba(251, 146, 60, 0.4))',
+            background: 'linear-gradient(to right, rgba(93, 97, 255, 0.38), rgba(79, 70, 229, 0.25))',
             filter: 'blur(100px)',
             borderRadius: '50%',
           }}
@@ -43,7 +43,7 @@ export default async function Image() {
               background: 'rgba(255,255,255,0.05)',
               border: '1px solid rgba(255,255,255,0.1)',
               borderRadius: '100px',
-              color: '#00C6FF',
+              color: '#a5a8ff',
               fontSize: '24px',
               fontWeight: 600,
               display: 'flex',
@@ -54,16 +54,16 @@ export default async function Image() {
           <div
             style={{
               padding: '16px 32px',
-              background: 'rgba(0, 198, 255, 0.1)',
-              border: '1px solid rgba(0, 198, 255, 0.3)',
+              background: 'rgba(93, 97, 255, 0.12)',
+              border: '1px solid rgba(93, 97, 255, 0.32)',
               borderRadius: '100px',
-              color: '#00C6FF',
+              color: '#a5a8ff',
               fontSize: '24px',
               fontWeight: 600,
               display: 'flex',
             }}
           >
-            Available Summer &apos;26
+            Operations Concentration
           </div>
         </div>
 

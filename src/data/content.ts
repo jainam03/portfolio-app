@@ -3,30 +3,30 @@
 
 export const personalInfo = {
   name: "Jainam Chheda",
-  title: "Operations · Analytics · Strategy",
-  tagline: "Engineering precision meets business design.",
+  title: "Business Design · Operations · Analytics",
+  tagline: "Turning operational complexity into clear decisions.",
   positionStatement:
-    "I turn messy operational problems into clear workflows, decision tools, and practical prototypes.",
+    "I combine process analysis, data, and structured problem-solving to improve workflows and support better business decisions.",
   location: "Mumbai, India",
   email: "jbchheda03@gmail.com",
   linkedin: "https://www.linkedin.com/in/jainam-chheda",
   github: "https://github.com/jainam03",
   resumeUrl: "/resume-latest.pdf",
   openToWork: false,
-  seekingRole: "Former Intern @ Roquette",
+  seekingRole: "Former Procurement Analyst Intern @ Roquette",
 };
 
 export const about = {
-  headline: "Systems thinker. Process analyst. Structured executor.",
+  headline: "Business design student. Operations analyst. Structured problem-solver.",
   paragraphs: [
-    "PGDM – Business Design student at WeSchool with a B.E. in Information Technology.",
-    "I map systems, find the highest-leverage gap, and communicate the solution through crisp analysis, dashboards, and prototypes.",
+    "PGDM Business Design student at WeSchool, with a B.E. in Information Technology and a functional concentration in Operations.",
+    "I map processes, analyze operational and market data, and turn findings into practical workflows, dashboards, and decision-support tools.",
   ],
   traits: [
-    "Systems Thinker",
-    "Process Analyst",
-    "Lean Practitioner",
-    "Design Thinker",
+    "Process Analysis",
+    "Root Cause Analysis",
+    "Data-led Decisions",
+    "Stakeholder Collaboration",
   ],
 };
 
@@ -36,7 +36,7 @@ export const education = [
     institution: "WeSchool (Prin. L.N. Welingkar Institute)",
     period: "2025 – 2027",
     location: "Mumbai",
-    grade: "8.22 / 10",
+    grade: "7.98 / 10",
     highlights: [
       "Major: Design Thinking, Strategy & Consulting",
       "Functional Concentration: Operations",
@@ -53,6 +53,22 @@ export const education = [
       "Published 2 research papers in peer-reviewed journals",
       "Runners-up at Global Deepfake Discovery Hackathon (Cyber Peace Foundation)",
     ],
+  },
+  {
+    degree: "Higher Secondary Certificate (HSC)",
+    institution: "SIES College, Mumbai",
+    period: "2020",
+    location: "Mumbai",
+    grade: "75.85%",
+    highlights: [],
+  },
+  {
+    degree: "Secondary School Certificate (SSC)",
+    institution: "Shree Sanatan Dharam Vidyalaya, Mumbai",
+    period: "2018",
+    location: "Mumbai",
+    grade: "92.20%",
+    highlights: [],
   },
 ];
 
@@ -84,24 +100,24 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "p1",
-    title: "Service Operations & Process Analysis",
+    title: "Process Analysis — QSR & Retail",
     domain: "Operations",
     period: "Jul '25 – Dec '25",
     summary:
-      "Mapped McDonald's QSR operations to expose process waste, customer lead time, and bottlenecks.",
+      "Used Gemba observation and time-motion analysis to map QSR operations and quantify process waste and customer lead time.",
     tags: ["Lean", "Time-Motion Study", "Process Mapping", "QSR"],
-    impact: "72.88% NVA time · 31 min lead time · 8.59% PCE",
+    impact: "72.88% non-value-added activity · 31-minute lead time · 8.59% process cycle efficiency",
     problem:
-      "McDonald's service flow carried a 31-minute customer lead time, with waste concentrated in waiting, handoffs, and reactive table allocation.",
+      "The observed QSR process had a 31-minute lead time and substantial non-value-added activity, pointing to bottlenecks and process gaps.",
     approach:
-      "Used a Gemba walk, time-motion study, value-stream analysis, and process redesign to locate bottlenecks and propose technology-enabled interventions.",
+      "Conducted a Gemba walk and time-motion study to map the as-is process, quantify non-value-added activity, and design a more efficient to-be workflow.",
     tools: ["Time-Motion Study", "Lean / VSM", "MS Excel", "Process Mapping"],
     insights: [
       "72.88% of observed activity was non-value-added.",
       "Process cycle efficiency was 8.59%, highlighting a large improvement opportunity.",
     ],
     outcome:
-      "Proposed pre-allocation protocols, live seat visibility, and integrated pre-ordering to reduce avoidable movement and waiting.",
+      "Designed to-be workflows addressing the measured process gaps and inefficiencies.",
     artifacts: [
       {
         type: "presentation",
@@ -162,34 +178,34 @@ export const projects: Project[] = [
   },
   {
     id: "p3",
-    title: "C&D Waste Lifecycle Analysis — Trace Carbon",
+    title: "C&D Waste Lifecycle Analysis — GCL Project",
     domain: "Sustainability & Analytics",
     period: "Nov '25 – Apr '26",
     summary:
-      "Mapped C&D waste workflows and developed a technology-enabled platform for carbon and circularity decisions.",
+      "Mapped the construction and demolition waste lifecycle and identified traceability gaps and opportunities to improve process visibility.",
     tags: [
-      "Carbon Tracking",
+      "Lifecycle Analysis",
       "Workflow Analysis",
       "Sustainability",
       "Prototype",
     ],
-    impact: "Research-led platform for carbon visibility and circularity",
+    impact: "End-to-end lifecycle map · stakeholder and material flow analysis",
     problem:
-      "C&D waste systems lacked structured carbon tracking and compliance monitoring — creating fragmented, non-transparent waste management with no clear basis for circularity decisions.",
+      "The C&D waste lifecycle had process gaps, operational risks, and limited traceability across collection, transportation, processing, and disposal.",
     approach:
-      "Combined primary and secondary research, stakeholder pain-point mapping, value-proposition design, and feasibility assessment into a technology-enabled platform concept.",
+      "Mapped end-to-end material and stakeholder flows to identify inefficiencies and traceability gaps, then assessed technology-enabled interventions for improved visibility and control.",
     tools: [
       "Workflow Analysis",
-      "Sustainability Frameworks",
-      "Carbon Calculation Logic",
+      "Stakeholder Mapping",
+      "Material Flow Analysis",
       "Prototype Design",
     ],
     insights: [
-      "Stakeholder pain points clustered around fragmented workflows and limited sustainability visibility.",
-      "Adoption readiness and circularity value were treated as design requirements, not afterthoughts.",
+      "Process and traceability gaps appeared across multiple stages of the waste lifecycle.",
+      "Stakeholder and material-flow mapping helped surface opportunities to improve visibility and resource use.",
     ],
     outcome:
-      "Developed a technology-enabled platform concept and evaluated its business feasibility, circularity potential, and adoption readiness.",
+      "Delivered a lifecycle analysis with proposed interventions to improve process visibility, resource utilization, and operational control.",
     artifacts: [
       {
         type: "presentation",
@@ -213,13 +229,13 @@ export const projects: Project[] = [
     domain: "AI / ML Research",
     period: "Aug '23 – May '24",
     summary:
-      "Built an RNN-based model to classify real vs AI-generated audio — trained on 3,695 samples and published in GIS Science Journal.",
+      "Processed 3,695 labelled audio samples and evaluated deepfake detection models using accuracy and error metrics.",
     tags: ["Python", "RNN", "ML", "Audio Processing", "Research"],
-    impact: "Published research + Runners-up at Global Deepfake Hackathon",
+    impact: "3,695 labelled audio samples · Research publication · Hackathon runners-up",
     problem:
       "With the proliferation of AI-generated audio, distinguishing real from deepfake voice content is a high-stakes security challenge — yet accessible, accurate detection tools remain scarce.",
     approach:
-      "Built an RNN-based binary classification model in Python. Curated and preprocessed 3,695 audio samples (real vs. deepfake). Evaluated model performance and documented findings in a structured research format for publication.",
+      "Processed and prepared a labelled audio dataset of 3,695 samples, then evaluated detection models using accuracy and error metrics.",
     tools: [
       "Python",
       "RNN / Deep Learning",
@@ -227,8 +243,8 @@ export const projects: Project[] = [
       "Data Annotation",
     ],
     insights: [
-      "RNN architectures capture temporal audio patterns more effectively than frame-level classifiers.",
-      "Dataset curation quality had a larger impact on model accuracy than architecture tuning.",
+      "The project focused on measurable model evaluation across labelled real and deepfake audio samples.",
+      "The work contributed to a published review paper on deepfake voice detection.",
     ],
     outcome:
       "Functional deepfake detection model. Research published in GIS Science Journal (Feb '24). Team placed Runners-up at the Global Deepfake Discovery Hackathon organised by Cyber Peace Foundation (Mar '24).",
@@ -293,14 +309,15 @@ export const experience: Experience[] = [
     organization: "Roquette",
     period: "May 2026 – Jul 2026",
     impact: [
-      "Analysed maize price movements across NCDEX and mandi markets using supply, demand, crop, weather, trade, and end-use data.",
-      "Built a Power BI decision-support model and documented monthly refresh checks without changing model relationships or calculated tables.",
+      "Analyzed supply-demand dynamics, cyclicality, and macroeconomic factors to develop pricing insights and support data-driven sourcing decisions.",
+      "Built an integrated Power BI model combining pricing, production, inventory, and demand data for trend analysis and scenario review.",
+      "Designed standardized update protocols and QA checks to maintain data quality and model consistency across monthly cycles.",
     ],
     tools: [
       "Power BI",
       "Market Analysis",
-      "Data Validation",
-      "Business Reporting",
+      "Data Quality",
+      "Sourcing Decisions",
     ],
   },
 ];
@@ -316,58 +333,55 @@ export const skills: Skill[] = [
     category: "Operations & Process",
     icon: "⚙️",
     items: [
-      "Process Analysis & Optimisation",
+      "Process Analysis",
       "Workflow Design",
-      "Time-Motion Study",
-      "Lean Methodology",
-      "Customer Journey Mapping",
-      "Stakeholder Coordination",
+      "Process Mapping",
+      "Process Improvement",
+      "Root Cause Analysis",
+      "Gemba Study",
     ],
   },
   {
     category: "Data & Analytics",
     icon: "📊",
     items: [
-      "Data Analysis & Visualisation",
-      "Tableau",
+      "Data Analysis",
+      "Data Visualization",
+      "Dashboard Development",
       "Power BI",
-      "MS Excel (Advanced)",
-      "SQL (Basic)",
+      "Business Intelligence",
+      "AI / GenAI Tools",
     ],
   },
   {
-    category: "Tech & Engineering",
+    category: "Tools & Platforms",
     icon: "💻",
     items: [
-      "Python (Basic)",
-      "Solidity (Basic)",
-      "RNN / ML (Basic)",
-      "Figma",
-      "Notion",
-      "Canva",
+      "Excel",
+      "PowerPoint",
+      "Word",
+      "VS Code",
+      "GitHub",
+      "Replit",
+      "Lovable",
+      "Bolt",
+      "Google Stitch",
     ],
   },
   {
-    category: "Business Design",
+    category: "Professional Skills",
     icon: "🎯",
     items: [
-      "Design Thinking",
-      "Strategy & Consulting",
-      "Structured Problem-Solving",
-      "UX Research",
-      "Stakeholder Mapping",
-      "MS PowerPoint",
+      "Structured Problem Solving",
+      "Stakeholder Management",
+      "Cross-functional Collaboration",
+      "Communication",
+      "Adaptability",
     ],
   },
 ];
 
 export const certifications = [
-  {
-    title: "Project Associate Certification Program",
-    issuer: "Reliance Foundation",
-    year: "2026",
-    credentialUrl: "#",
-  },
   {
     title: "Leading with Generative AI",
     issuer: "Harvard Business Impact Enterprise",
@@ -380,9 +394,33 @@ export const certifications = [
     year: "2026",
     credentialUrl: "#",
   },
+  {
+    title: "Process Improvement",
+    issuer: "Harvard Business Impact Enterprise",
+    year: "2026 · Pursuing",
+    credentialUrl: "#",
+  },
 ];
 
+export const aiTools = [
+  "ChatGPT / Codex",
+  "Claude",
+  "GitHub Copilot",
+  "Gemini",
+  "Google Antigravity",
+];
+
+export const languages = ["English", "Hindi", "Gujarati", "Marathi"];
+export const interests = ["Cricket", "Chess", "Music"];
+
 export const leadership = [
+  {
+    role: "Member, Management Council",
+    organization: "WeSchool",
+    period: "Apr '26 – Present",
+    impact:
+      "Co-led planning and execution of a flagship industry-academia event, coordinating students, faculty, alumni, industry leaders, and volunteer teams.",
+  },
   {
     role: "Management Co-head",
     organization: "Google Developer Student's Club",

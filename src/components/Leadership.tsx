@@ -1,6 +1,6 @@
 'use client';
 
-import { certifications, leadership, achievements, experience } from '@/data/content';
+import { certifications, leadership, achievements, experience, interests, languages } from '@/data/content';
 import { Award, Star, ExternalLink, Trophy, Briefcase } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
 
@@ -154,6 +154,17 @@ export default function Leadership() {
                 ))}
               </div>
             </AnimatedSection>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+          <div className="glass rounded-2xl p-5">
+            <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">Languages</p>
+            <div className="flex flex-wrap gap-2">{languages.map((language) => <span key={language} className="chip-muted">{language}</span>)}</div>
+          </div>
+          <div className="glass rounded-2xl p-5">
+            <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">Outside work</p>
+            <div className="flex flex-wrap gap-2">{interests.map((interest) => <span key={interest} className="chip-muted">{interest}</span>)}</div>
           </div>
         </div>
       </div>

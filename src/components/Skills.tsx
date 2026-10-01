@@ -1,20 +1,20 @@
 'use client';
 
-import { skills } from '@/data/content';
+import { aiTools, skills } from '@/data/content';
 import { AnimatedSection } from '@/components/AnimatedSection';
 
 const domainColors: Record<string, string> = {
-  'Analytical & Strategy': 'hsl(238, 78%, 68%)',
-  'Tools & Software': 'hsl(234, 72%, 72%)',
-  'Tech & Engineering': 'hsl(238, 70%, 65%)',
-  'Business Design': 'hsl(234, 75%, 70%)',
+  'Operations & Process': 'hsl(238, 78%, 68%)',
+  'Data & Analytics': 'hsl(234, 72%, 72%)',
+  'Tools & Platforms': 'hsl(238, 70%, 65%)',
+  'Professional Skills': 'hsl(234, 75%, 70%)',
 };
 
 const domainColorsDark: Record<string, string> = {
-  'Analytical & Strategy': 'hsl(238, 65%, 55%)',
-  'Tools & Software': 'hsl(234, 60%, 58%)',
-  'Tech & Engineering': 'hsl(238, 60%, 52%)',
-  'Business Design': 'hsl(234, 62%, 56%)',
+  'Operations & Process': 'hsl(238, 65%, 55%)',
+  'Data & Analytics': 'hsl(234, 60%, 58%)',
+  'Tools & Platforms': 'hsl(238, 60%, 52%)',
+  'Professional Skills': 'hsl(234, 62%, 56%)',
 };
 
 export default function Skills() {
@@ -88,6 +88,20 @@ export default function Skills() {
             );
           })}
         </div>
+
+        <AnimatedSection delay={400}>
+          <div className="glass rounded-2xl p-6 mt-6">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">AI tools</p>
+                <p className="text-sm text-muted-foreground">Tools used for research, analysis, and prototyping.</p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {aiTools.map((tool) => <span key={tool} className="chip-muted">{tool}</span>)}
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

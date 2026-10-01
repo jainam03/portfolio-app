@@ -20,9 +20,9 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: 'Jainam Chheda — Operations · Analytics · Strategy',
+  title: 'Jainam Chheda — Business Design · Operations · Analytics',
   description:
-    'Portfolio of Jainam Chheda — IT engineer turned business designer, specializing in systems thinking, process optimization, and execution-driven solutions.',
+    'Portfolio of Jainam Chheda, PGDM Business Design student focused on process analysis, operations, analytics, and structured problem-solving.',
   keywords: [
     'Jainam Chheda',
     'Portfolio',
@@ -36,17 +36,17 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Jainam Chheda' }],
   openGraph: {
-    title: 'Jainam Chheda — Operations · Analytics · Strategy',
+    title: 'Jainam Chheda — Business Design · Operations · Analytics',
     description:
-      'I map operational systems, diagnose inefficiencies, and build structured solutions.',
+      'I analyze processes and data to build practical workflows and decision-support tools.',
     type: 'website',
     url: 'https://jainamchheda.com',
     siteName: 'Jainam Chheda Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jainam Chheda — Operations · Analytics · Strategy',
-    description: 'Engineering precision meets business design. Operations, SCM, and Product.',
+    title: 'Jainam Chheda — Business Design · Operations · Analytics',
+    description: 'Process analysis, operations, and analytics for clearer business decisions.',
   },
 };
 

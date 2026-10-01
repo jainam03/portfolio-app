@@ -7,7 +7,7 @@ import { AnimatedSection } from '@/components/AnimatedSection';
 const stats = [
   { label: 'Projects', value: '5', icon: FolderOpen },
   { label: 'Publications', value: '2', icon: BookOpen },
-  { label: 'PGDM GPA', value: '8.22', icon: Trophy },
+  { label: 'PGDM GPA', value: '7.98', icon: Trophy },
 ];
 
 export default function About() {
