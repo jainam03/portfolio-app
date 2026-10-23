@@ -99,6 +99,28 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "p6",
+    title: "DigiYatra — Passenger Journey & Check-in Redesign",
+    domain: "Product & Process Analysis",
+    period: "Aug '26 – Sept '26",
+    summary:
+      "Analyzed passenger friction in DigiYatra and proposed a clearer boarding-pass flow with API/PNR-enabled auto-sync.",
+    tags: ["Journey Mapping", "UX Audit", "API / PNR Integration", "Biometric Recovery"],
+    impact: "One-tap booking entry · Proposed native boarding-pass sync · Clearer error recovery",
+    problem:
+      "The passenger journey had broken boarding-pass uploads, confusing 'Hub & Spoke' language, overlapping calls to action, and biometric errors that could leave travelers blocked.",
+    approach:
+      "Reviewed the frequent-flyer and first-time-traveler journeys, mapped process, cognitive, UI, and technical friction, then prioritized a single prominent booking action and an API/PNR-enabled boarding-pass sync concept.",
+    tools: ["Passenger Journey Analysis", "UX Audit", "Persona Mapping", "Product Roadmapping", "Success Metric Design"],
+    insights: [
+      "Different travelers face different friction: frequent flyers value speed, while first-time travelers need simpler navigation and clearer guidance.",
+      "The deck prioritizes a single clear entry point first, then auto-sync and simpler terminology.",
+      "Native check-in and reduced support tickets are proposed outcomes; they were not measured in a live rollout.",
+    ],
+    outcome:
+      "Proposed a phased redesign: simplify labels and calls to action, add API/PNR-based booking and boarding-pass sync, clarify biometric recovery, and track adoption, funnel drop-off, and support-ticket change.",
+  },
+  {
     id: "p1",
     title: "Process Analysis — QSR & Retail",
     domain: "Operations",
