@@ -5,6 +5,7 @@ const artifactPaths: Record<string, string> = {
   qsr: "qsr_presentation.pdf",
   gifting: "gifting_presentation.pdf",
   traceCarbon: "trace_presentation.pdf",
+  digiyatra: "digiyatra_presentation.pdf",
 };
 
 export async function GET(request: NextRequest) {

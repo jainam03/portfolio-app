@@ -119,6 +119,15 @@ export const projects: Project[] = [
     ],
     outcome:
       "Proposed a phased redesign: simplify labels and calls to action, add API/PNR-based booking and boarding-pass sync, clarify biometric recovery, and track adoption, funnel drop-off, and support-ticket change.",
+    artifacts: [
+      {
+        type: "presentation",
+        label: "View Presentation",
+        mode: "storage-pdf",
+        storageKey: "digiyatra",
+        available: true,
+      },
+    ],
   },
   {
     id: "p1",
