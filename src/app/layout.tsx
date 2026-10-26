@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import { ScrollToTop } from '@/components/ScrollToTop';
 import { ReadingProgress } from '@/components/ReadingProgress';
 import { ScrollIndicator } from '@/components/ScrollIndicator';
+import { personalInfo } from '@/data/content';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,6 +21,7 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(personalInfo.siteUrl),
   title: 'Jainam Chheda — Business Design · Operations · Analytics',
   description:
     'Portfolio of Jainam Chheda, PGDM Business Design student focused on process analysis, operations, analytics, and structured problem-solving.',
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
     description:
       'I analyze processes and data to build practical workflows and decision-support tools.',
     type: 'website',
-    url: 'https://jainamchheda.com',
+    url: personalInfo.siteUrl,
     siteName: 'Jainam Chheda Portfolio',
   },
   twitter: {

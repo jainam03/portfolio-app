@@ -2,6 +2,9 @@
 // Single source of truth. Edit here to update the entire site.
 
 export const personalInfo = {
+  siteUrl:
+    process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/+$/, "") ||
+    "https://jainam-chheda.vercel.app",
   name: "Jainam Chheda",
   title: "Business Design · Operations · Analytics",
   tagline: "Turning operational complexity into clear decisions.",
@@ -72,19 +75,30 @@ export const education = [
   },
 ];
 
-export type ProjectArtifact = {
+type ProjectArtifactBase = {
   type: "presentation" | "prototype";
   label: string;
-  mode: "storage-pdf" | "pdf" | "external" | "iframe";
-  url?: string;
-  storageKey?: string;
   available: boolean;
+  unavailableReason?: string;
 };
+
+export type ProjectArtifact =
+  | (ProjectArtifactBase & { mode: "storage-pdf"; storageKey: string })
+  | (ProjectArtifactBase & {
+      mode: "pdf" | "external" | "iframe";
+      url: string;
+    });
+
+export type ProjectFocus = "operations" | "analytics" | "product" | "technology";
 
 export type Project = {
   id: string;
+  slug: string;
   title: string;
   domain: string;
+  projectType: string;
+  focusAreas: ProjectFocus[];
+  teamContext?: string;
   period: string;
   summary: string;
   tags: string[];
@@ -100,13 +114,17 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "p6",
+    slug: "digiyatra-passenger-journey",
     title: "DigiYatra — Passenger Journey & Check-in Redesign",
     domain: "Product & Process Analysis",
+    projectType: "Product proposal",
+    focusAreas: ["product", "operations"],
+    teamContext: "Group 9 team project",
     period: "Aug '26 – Sept '26",
     summary:
       "Analyzed passenger friction in DigiYatra and proposed a clearer boarding-pass flow with API/PNR-enabled auto-sync.",
     tags: ["Journey Mapping", "UX Audit", "API / PNR Integration", "Biometric Recovery"],
-    impact: "One-tap booking entry · Proposed native boarding-pass sync · Clearer error recovery",
+    impact: "Proposed single booking entry · API/PNR sync concept · Clearer recovery guidance",
     problem:
       "The passenger journey had broken boarding-pass uploads, confusing 'Hub & Spoke' language, overlapping calls to action, and biometric errors that could leave travelers blocked.",
     approach:
@@ -131,8 +149,11 @@ export const projects: Project[] = [
   },
   {
     id: "p1",
+    slug: "qsr-process-analysis",
     title: "Process Analysis — QSR & Retail",
     domain: "Operations",
+    projectType: "Process analysis",
+    focusAreas: ["operations", "analytics"],
     period: "Jul '25 – Dec '25",
     summary:
       "Used Gemba observation and time-motion analysis to map QSR operations and quantify process waste and customer lead time.",
@@ -161,8 +182,11 @@ export const projects: Project[] = [
   },
   {
     id: "p2",
+    slug: "customised-gifting-platform",
     title: "Customised Gifting Platform — UX Digitisation",
     domain: "Product & UX",
+    projectType: "Workflow prototype",
+    focusAreas: ["product"],
     period: "Nov '25 – Jan '26",
     summary:
       "Mapped a gifting platform's order lifecycle and designed an AI-enabled coordination prototype.",
@@ -172,7 +196,7 @@ export const projects: Project[] = [
       "AI Prototype",
       "Stakeholder Mapping",
     ],
-    impact: "Coordination prototype reducing gaps across 3+ stakeholder layers",
+    impact: "Workflow prototype designed for handoffs across 3 stakeholder groups",
     problem:
       "The platform had fragmented coordination across customers, vendors, and manufacturers — causing fulfilment delays, poor order visibility, and repeated alignment failures at handoff points.",
     approach:
@@ -209,8 +233,11 @@ export const projects: Project[] = [
   },
   {
     id: "p3",
+    slug: "construction-demolition-waste",
     title: "C&D Waste Lifecycle Analysis — GCL Project",
     domain: "Sustainability & Analytics",
+    projectType: "Lifecycle analysis",
+    focusAreas: ["operations", "analytics"],
     period: "Nov '25 – Apr '26",
     summary:
       "Mapped the construction and demolition waste lifecycle and identified traceability gaps and opportunities to improve process visibility.",
@@ -256,8 +283,11 @@ export const projects: Project[] = [
   },
   {
     id: "p4",
+    slug: "fakebreaker-audio-deepfake-detection",
     title: "FakeBreaker — Audio Deepfake Detection",
     domain: "AI / ML Research",
+    projectType: "Research and model project",
+    focusAreas: ["technology", "analytics"],
     period: "Aug '23 – May '24",
     summary:
       "Processed 3,695 labelled audio samples and evaluated deepfake detection models using accuracy and error metrics.",
@@ -291,13 +321,16 @@ export const projects: Project[] = [
   },
   {
     id: "p5",
+    slug: "evenix-blockchain-ticketing",
     title: "Evenix — Blockchain Ticketing System",
     domain: "Tech & Blockchain",
+    projectType: "Smart-contract simulation",
+    focusAreas: ["technology"],
     period: "Aug '23 – May '24",
     summary:
       "Designed a Solidity-based blockchain ticketing platform with smart contracts to prevent duplication and enable tamper-proof traceability.",
     tags: ["Solidity", "Blockchain", "Smart Contracts", "Systems Design"],
-    impact: "Smart contract logic eliminating ticket duplication risk",
+    impact: "Smart-contract simulation for ticket uniqueness and traceability",
     problem:
       "Ticket fraud, duplication, and resale manipulation are systemic issues in event-based transaction systems — undermining revenue integrity and user trust.",
     approach:
@@ -313,7 +346,7 @@ export const projects: Project[] = [
       "Feasibility for real-world deployment hinges on gas cost optimisation vs. fraud prevention ROI.",
     ],
     outcome:
-      "Functional simulation with documented smart contract architecture. Feasibility assessment validated the approach for deployment in high-volume transactional ticketing environments.",
+      "Functional simulation with documented smart-contract architecture. Real-world deployment impact was not measured.",
     artifacts: [
       {
         type: "prototype",
@@ -412,24 +445,28 @@ export const skills: Skill[] = [
   },
 ];
 
-export const certifications = [
+export type Certification = {
+  title: string;
+  issuer: string;
+  year: string;
+  credentialUrl?: string;
+};
+
+export const certifications: Certification[] = [
   {
     title: "Leading with Generative AI",
     issuer: "Harvard Business Impact Enterprise",
     year: "2026",
-    credentialUrl: "#",
   },
   {
     title: "AI Fluency Framework & Foundation",
     issuer: "Anthropic",
     year: "2026",
-    credentialUrl: "#",
   },
   {
     title: "Process Improvement",
     issuer: "Harvard Business Impact Enterprise",
     year: "2026 · Pursuing",
-    credentialUrl: "#",
   },
 ];
 

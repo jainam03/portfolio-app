@@ -94,7 +94,7 @@ export default async function Image() {
 
         <div style={{ display: 'flex', marginTop: 'auto', borderTop: '2px solid rgba(255,255,255,0.1)', width: '100%', paddingTop: '40px' }}>
           <p style={{ fontSize: '32px', color: '#64748b', display: 'flex' }}>
-            jainamchheda.com
+            {new URL(personalInfo.siteUrl).host}
           </p>
         </div>
       </div>

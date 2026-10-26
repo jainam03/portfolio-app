@@ -1,16 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase-admin";
-
-const artifactPaths: Record<string, string> = {
-  qsr: "qsr_presentation.pdf",
-  gifting: "gifting_presentation.pdf",
-  traceCarbon: "trace_presentation.pdf",
-  digiyatra: "digiyatra_presentation.pdf",
-};
+import { getArtifactPath } from "@/lib/artifacts";
 
 export async function GET(request: NextRequest) {
   const project = request.nextUrl.searchParams.get("project");
-  const path = project ? artifactPaths[project] : undefined;
+  const path = getArtifactPath(project);
 
   if (!path) {
     return NextResponse.json({ error: "Unknown artifact." }, { status: 404 });
@@ -35,6 +29,12 @@ export async function GET(request: NextRequest) {
       { error: "Could not create artifact URL. Please retry or use the case study." },
       { status: 500, headers: { "Cache-Control": "no-store" } },
     );
+  }
+
+  if (request.nextUrl.searchParams.get("view") === "pdf") {
+    return NextResponse.redirect(data.signedUrl, {
+      headers: { "Cache-Control": "no-store" },
+    });
   }
 
   return NextResponse.json({

@@ -1,5 +1,3 @@
-'use client';
-
 import { aiTools, skills } from '@/data/content';
 import { AnimatedSection } from '@/components/AnimatedSection';
 

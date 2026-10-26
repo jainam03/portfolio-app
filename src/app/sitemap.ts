@@ -2,8 +2,7 @@ import { MetadataRoute } from 'next';
 import { personalInfo } from '@/data/content';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Replace with your actual domain once deployed
-  const baseUrl = 'https://jainamchheda.com';
+  const baseUrl = personalInfo.siteUrl;
 
   return [
     {

@@ -1,13 +1,7 @@
-'use client';
-
 import { personalInfo } from '@/data/content';
-import { ArrowUpRight, Github, Linkedin, Mail, Zap, ArrowDown } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin, Mail, Zap } from 'lucide-react';
 
 export default function Hero() {
-  const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section
       id="hero"
@@ -112,10 +106,10 @@ export default function Hero() {
           className="flex flex-wrap items-center justify-center gap-4 mb-10 animate-slide-up"
           style={{ animationDelay: '0.5s', animationFillMode: 'both' }}
         >
-          <button onClick={scrollToProjects} className="btn-primary">
+          <a href="#projects" className="btn-primary">
             <Zap className="w-4 h-4" />
             View My Work
-          </button>
+          </a>
           <a
             href={personalInfo.resumeUrl}
             target="_blank"

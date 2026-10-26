@@ -1,29 +1,47 @@
 import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
+import { personalInfo } from '@/data/content';
+import { escapeEmailHtml, validateContactPayload } from '@/lib/contact-validation';
+import { takeContactRateLimitToken } from '@/lib/contact-rate-limit';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
+  let rawPayload: unknown;
   try {
-    const { name, email, subject, message } = await req.json();
+    rawPayload = await req.json();
+  } catch {
+    return NextResponse.json({ error: 'Please submit a valid contact form.' }, { status: 400 });
+  }
 
-    // Basic server-side validation
-    if (!name || !email || !message) {
-      return NextResponse.json(
-        { error: 'Name, email, and message are required.' },
-        { status: 400 }
-      );
-    }
+  const validation = validateContactPayload(rawPayload);
+  if (!validation.success) {
+    return NextResponse.json({ error: validation.error }, { status: 400 });
+  }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return NextResponse.json(
-        { error: 'Please provide a valid email address.' },
-        { status: 400 }
-      );
-    }
+  const { name, email, subject, message, website } = validation.data;
+  // A hidden honeypot catches simple bots without adding friction for people.
+  if (website) return NextResponse.json({ success: true }, { status: 200 });
 
+  const forwardedFor = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
+  const clientKey = forwardedFor || req.headers.get('x-real-ip') || 'unknown-client';
+  const rateLimit = takeContactRateLimitToken(clientKey);
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      { error: 'Too many messages. Please try again later.' },
+      { status: 429, headers: { 'Retry-After': String(rateLimit.retryAfterSeconds) } },
+    );
+  }
+
+  const safeName = escapeEmailHtml(name);
+  const safeEmail = escapeEmailHtml(email);
+  const safeSubject = escapeEmailHtml(subject);
+  const safeMessage = escapeEmailHtml(message);
+  const replySubject = encodeURIComponent(`Re: ${subject || 'Your message'}`);
+
+  try {
     const { error } = await resend.emails.send({
-      from: 'Portfolio Contact <onboarding@resend.dev>', // Update once domain is verified
+      from: 'Portfolio Contact <onboarding@resend.dev>',
       to: ['jbchheda03@gmail.com'],
       replyTo: email,
       subject: subject
@@ -36,7 +54,7 @@ export async function POST(req: NextRequest) {
               New Portfolio Message
             </h1>
             <p style="color: rgba(255,255,255,0.8); margin: 4px 0 0; font-size: 13px;">
-              via jainamchheda.com
+              via ${escapeEmailHtml(personalInfo.siteUrl)}
             </p>
           </div>
 
@@ -45,34 +63,34 @@ export async function POST(req: NextRequest) {
               <tr>
                 <td style="padding: 10px 0; border-bottom: 1px solid #f1f5f9;">
                   <span style="font-size: 12px; color: #94a3b8; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">From</span><br/>
-                  <span style="font-size: 15px; color: #1e293b; font-weight: 500;">${name}</span>
+                  <span style="font-size: 15px; color: #1e293b; font-weight: 500;">${safeName}</span>
                 </td>
               </tr>
               <tr>
                 <td style="padding: 10px 0; border-bottom: 1px solid #f1f5f9;">
                   <span style="font-size: 12px; color: #94a3b8; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Email</span><br/>
-                  <a href="mailto:${email}" style="font-size: 15px; color: #0072FF; text-decoration: none;">${email}</a>
+                  <a href="mailto:${encodeURIComponent(email)}" style="font-size: 15px; color: #0072FF; text-decoration: none;">${safeEmail}</a>
                 </td>
               </tr>
               ${subject ? `
               <tr>
                 <td style="padding: 10px 0; border-bottom: 1px solid #f1f5f9;">
                   <span style="font-size: 12px; color: #94a3b8; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Subject</span><br/>
-                  <span style="font-size: 15px; color: #1e293b;">${subject}</span>
+                  <span style="font-size: 15px; color: #1e293b;">${safeSubject}</span>
                 </td>
               </tr>` : ''}
               <tr>
                 <td style="padding: 10px 0;">
                   <span style="font-size: 12px; color: #94a3b8; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em;">Message</span><br/>
-                  <p style="font-size: 15px; color: #334155; line-height: 1.7; margin: 8px 0 0; white-space: pre-wrap;">${message}</p>
+                  <p style="font-size: 15px; color: #334155; line-height: 1.7; margin: 8px 0 0; white-space: pre-wrap;">${safeMessage}</p>
                 </td>
               </tr>
             </table>
 
             <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #f1f5f9;">
-              <a href="mailto:${email}?subject=Re: ${subject || 'Your message'}"
+              <a href="mailto:${encodeURIComponent(email)}?subject=${replySubject}"
                 style="display: inline-block; background: linear-gradient(135deg, #00C6FF, #0072FF); color: white; padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none;">
-                Reply to ${name}
+                Reply to ${safeName}
               </a>
             </div>
           </div>

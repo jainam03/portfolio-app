@@ -1,5 +1,3 @@
-'use client';
-
 import { certifications, leadership, achievements, experience, interests, languages } from '@/data/content';
 import { Award, Star, ExternalLink, Trophy, Briefcase } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
@@ -92,12 +90,9 @@ export default function Leadership() {
             </AnimatedSection>
             {certifications.map((cert, i) => (
               <AnimatedSection key={i} delay={150 + i * 100}>
-                <a
-                  href={cert.credentialUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <div
                   id={`cert-${i}`}
-                  className="flex items-start gap-4 glass rounded-2xl p-5 card-hover group"
+                  className="flex items-start gap-4 glass rounded-2xl p-5"
                 >
                   <div className="p-2 rounded-xl bg-[hsl(var(--accent)/0.1)] shrink-0">
                     <Award className="w-5 h-5 text-[hsl(var(--accent))]" />
@@ -107,8 +102,8 @@ export default function Leadership() {
                       <h3 className="text-sm font-semibold leading-snug">
                         {cert.title}
                       </h3>
-                      {cert.credentialUrl !== '#' && (
-                        <ExternalLink className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5 group-hover:text-[hsl(var(--primary))] transition-colors" />
+                      {cert.credentialUrl && (
+                        <ExternalLink className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5" />
                       )}
                     </div>
                     <p className="text-xs text-muted-foreground mt-0.5">
@@ -117,8 +112,13 @@ export default function Leadership() {
                     <span className="chip-muted text-[10px] mt-2 inline-flex">
                       {cert.year}
                     </span>
+                    {!cert.credentialUrl && (
+                      <span className="block text-[10px] text-muted-foreground mt-2">
+                        Credential link not provided
+                      </span>
+                    )}
                   </div>
-                </a>
+                </div>
               </AnimatedSection>
             ))}
           </div>

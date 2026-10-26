@@ -1,11 +1,9 @@
-'use client';
-
-import { about, education } from '@/data/content';
+import { about, education, projects } from '@/data/content';
 import { GraduationCap, Lightbulb, BookOpen, Trophy, FolderOpen } from 'lucide-react';
 import { AnimatedSection } from '@/components/AnimatedSection';
 
 const stats = [
-  { label: 'Projects', value: '5', icon: FolderOpen },
+  { label: 'Projects', value: String(projects.length), icon: FolderOpen },
   { label: 'Publications', value: '2', icon: BookOpen },
   { label: 'PGDM GPA', value: '7.98', icon: Trophy },
 ];

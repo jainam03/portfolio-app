@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next';
+import { personalInfo } from '@/data/content';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://jainamchheda.com'; // Update this to your deployed domain
+  const baseUrl = personalInfo.siteUrl;
 
   return {
     rules: {

@@ -12,9 +12,10 @@ interface FormData {
   email: string;
   subject: string;
   message: string;
+  website: string;
 }
 
-const INITIAL_FORM: FormData = { name: '', email: '', subject: '', message: '' };
+const INITIAL_FORM: FormData = { name: '', email: '', subject: '', message: '', website: '' };
 
 export default function Contact() {
   const [form, setForm] = useState<FormData>(INITIAL_FORM);
@@ -112,6 +113,10 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+                    <label htmlFor="contact-website">Leave this field empty</label>
+                    <input id="contact-website" name="website" type="text" value={form.website} onChange={handleChange} tabIndex={-1} autoComplete="off" />
+                  </div>
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-10 h-10 rounded-xl bg-[hsl(var(--primary)/0.1)] border border-[hsl(var(--primary)/0.2)] flex items-center justify-center shrink-0">
                       <Send className="w-4 h-4 text-[hsl(var(--primary))]" />
